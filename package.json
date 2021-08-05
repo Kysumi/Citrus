@@ -15,7 +15,7 @@
         "prettier:format": "npm run prettier -- --write src/**/*.ts",
         "prettier:check": "npm run prettier -- -c ./src/**/*.ts",
         "lint-check": "npx eslint ./src/**/*.ts",
-        "code-style-check": "npm run lint-check && npm run prettier:check",
+        "code-style-check": "npm run lint-check && npm run prettier:check"
     },
     "author": "jkanchelov",
     "license": "MIT",
