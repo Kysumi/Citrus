@@ -6,7 +6,11 @@ declare const VERSION: string;
 const gameWidth = 800;
 const gameHeight = 600;
 
-console.log(`Welcome from pixi-typescript-boilerplate ${VERSION}`);
+let gridContainer = new PIXI.Container();
+const cellSize = 10;
+let iterations = 100;
+
+let canvasWidth = (iterations * 2 + 4) * cellSize;
 
 const app = new PIXI.Application({
     backgroundColor: 0xd3d3d3,
@@ -72,4 +76,39 @@ function getBird(): PIXI.AnimatedSprite {
     bird.scale.set(3);
 
     return bird;
+}
+
+updateGridAlgorithm(false, true, iterations);
+
+function updateGridAlgorithm(randomStart, showGrid, iterations) {
+    if (gridContainer) {
+        app.stage.removeChild(gridContainer);
+    }
+
+    gridContainer = new PIXI.Container();
+
+    if (showGrid) {
+        drawNewGrid(iterations, gridContainer);
+    }
+
+    app.stage.addChild(gridContainer);
+}
+
+function drawNewGrid(iterations, gridContainer) {
+    const gridWidth = iterations * 2 + 1;
+    const startX = canvasWidth / 2 - gridWidth / 2 * cellSize;
+    const startY = 20;
+
+    for (let x = 0; x < iterations; x++) {
+        for (let j = 0; j < gridWidth; j++) {
+            let rectangle = new PIXI.Graphics();
+
+            rectangle.lineStyle(0.5, 0x999999);
+            rectangle.beginFill(); // draw each row of rectangles in different color :)
+            rectangle.drawRect(startX + j * cellSize, startY + x * cellSize, cellSize, cellSize);
+            rectangle.endFill();
+
+            gridContainer.addChild(rectangle);
+        }
+    }
 }
