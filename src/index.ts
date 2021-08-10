@@ -1,6 +1,8 @@
 import * as PIXI from "pixi.js";
 import "./style.css";
 
+//https://www.html5gamedevs.com/topic/42741-fast-pixi-tilemap-renderer-trying-to-fix/
+
 declare const VERSION: string;
 
 const gameWidth = 800;
@@ -8,9 +10,9 @@ const gameHeight = 600;
 
 let gridContainer = new PIXI.Container();
 const cellSize = 10;
-let iterations = 100;
+const iterations = 100;
 
-let canvasWidth = (iterations * 2 + 4) * cellSize;
+const canvasWidth = (iterations * 2 + 4) * cellSize;
 
 const app = new PIXI.Application({
     backgroundColor: 0xd3d3d3,
@@ -78,9 +80,9 @@ function getBird(): PIXI.AnimatedSprite {
     return bird;
 }
 
-updateGridAlgorithm(false, true, iterations);
+updateGridAlgorithm(true, iterations);
 
-function updateGridAlgorithm(randomStart, showGrid, iterations) {
+function updateGridAlgorithm(showGrid, iterations) {
     if (gridContainer) {
         app.stage.removeChild(gridContainer);
     }
@@ -96,16 +98,16 @@ function updateGridAlgorithm(randomStart, showGrid, iterations) {
 
 function drawNewGrid(iterations, gridContainer) {
     const gridWidth = iterations * 2 + 1;
-    const startX = canvasWidth / 2 - gridWidth / 2 * cellSize;
+    const startX = canvasWidth / 2 - (gridWidth / 2) * cellSize;
     const startY = 20;
 
     for (let x = 0; x < iterations; x++) {
-        for (let j = 0; j < gridWidth; j++) {
-            let rectangle = new PIXI.Graphics();
+        for (let y = 0; y < gridWidth; y++) {
+            const rectangle = new PIXI.Graphics();
 
             rectangle.lineStyle(0.5, 0x999999);
-            rectangle.beginFill(); // draw each row of rectangles in different color :)
-            rectangle.drawRect(startX + j * cellSize, startY + x * cellSize, cellSize, cellSize);
+            rectangle.beginFill(x % 2 ? 0xf0f8ff : 0xfff0f8);
+            rectangle.drawRect(startX + x * cellSize, startY + y * cellSize, cellSize, cellSize);
             rectangle.endFill();
 
             gridContainer.addChild(rectangle);
