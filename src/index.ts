@@ -1,18 +1,14 @@
 import * as PIXI from "pixi.js";
 import "./style.css";
 
+import { renderGrid } from "./grid/gridRenderer";
+
 //https://www.html5gamedevs.com/topic/42741-fast-pixi-tilemap-renderer-trying-to-fix/
 
 declare const VERSION: string;
 
 const gameWidth = 800;
 const gameHeight = 600;
-
-let gridContainer = new PIXI.Container();
-const cellSize = 10;
-const iterations = 100;
-
-const canvasWidth = (iterations * 2 + 4) * cellSize;
 
 const app = new PIXI.Application({
     backgroundColor: 0xd3d3d3,
@@ -27,13 +23,13 @@ window.onload = async (): Promise<void> => {
 
     document.body.appendChild(app.view);
 
-    resizeCanvas();
+    // const birdFromSprite = getBird();
+    // birdFromSprite.anchor.set(0.5, 0.5);
+    // birdFromSprite.position.set(gameWidth / 2, gameHeight / 2);
 
-    const birdFromSprite = getBird();
-    birdFromSprite.anchor.set(0.5, 0.5);
-    birdFromSprite.position.set(gameWidth / 2, gameHeight / 2);
+    // stage.addChild(birdFromSprite);
 
-    stage.addChild(birdFromSprite);
+    renderGrid({ x: 5, y: 5 }, app);
 };
 
 async function loadGameAssets(): Promise<void> {
@@ -53,18 +49,6 @@ async function loadGameAssets(): Promise<void> {
     });
 }
 
-function resizeCanvas(): void {
-    const resize = () => {
-        app.renderer.resize(window.innerWidth, window.innerHeight);
-        app.stage.scale.x = window.innerWidth / gameWidth;
-        app.stage.scale.y = window.innerHeight / gameHeight;
-    };
-
-    resize();
-
-    window.addEventListener("resize", resize);
-}
-
 function getBird(): PIXI.AnimatedSprite {
     const bird = new PIXI.AnimatedSprite([
         PIXI.Texture.from("birdUp.png"),
@@ -78,39 +62,4 @@ function getBird(): PIXI.AnimatedSprite {
     bird.scale.set(3);
 
     return bird;
-}
-
-updateGridAlgorithm(true, iterations);
-
-function updateGridAlgorithm(showGrid, iterations) {
-    if (gridContainer) {
-        app.stage.removeChild(gridContainer);
-    }
-
-    gridContainer = new PIXI.Container();
-
-    if (showGrid) {
-        drawNewGrid(iterations, gridContainer);
-    }
-
-    app.stage.addChild(gridContainer);
-}
-
-function drawNewGrid(iterations, gridContainer) {
-    const gridWidth = iterations * 2 + 1;
-    const startX = canvasWidth / 2 - (gridWidth / 2) * cellSize;
-    const startY = 20;
-
-    for (let x = 0; x < iterations; x++) {
-        for (let y = 0; y < gridWidth; y++) {
-            const rectangle = new PIXI.Graphics();
-
-            rectangle.lineStyle(0.5, 0x999999);
-            rectangle.beginFill(x % 2 ? 0xf0f8ff : 0xfff0f8);
-            rectangle.drawRect(startX + x * cellSize, startY + y * cellSize, cellSize, cellSize);
-            rectangle.endFill();
-
-            gridContainer.addChild(rectangle);
-        }
-    }
 }
