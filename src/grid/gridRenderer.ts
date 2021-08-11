@@ -9,14 +9,14 @@ const CHUNK_SIZE = 10;
 const CHUNK_COUNT = 5;
 const CHUNK_WIDTH = CHUNK_SIZE * TILE_SIZE;
 
+const GRID_OFFSET = 50;
+
 interface GridConfig {
     dimensions: Vec2;
     position?: Vec2;
 }
 
-function getChunkOffset(chunkPosition: Vec2): Vec2 {
-    const { x, y } = chunkPosition;
-
+function getChunkOffset(x: number, y: number): Vec2 {
     return {
         x: (x * CHUNK_WIDTH) / 2,
         y: (y * CHUNK_WIDTH) / 2,
@@ -37,9 +37,10 @@ export function renderGrid(dimensions: Vec2, app: Application): void {
             const config = { dimensions };
             drawChunk(config, gridContainer);
 
-            const { x: chunkX, y: chunkY } = getChunkOffset({ x, y });
-            gridContainer.x = chunkX + 50;
-            gridContainer.y = chunkY + 50;
+            const { x: chunkX, y: chunkY } = getChunkOffset(x, y);
+
+            gridContainer.x = chunkX + GRID_OFFSET;
+            gridContainer.y = chunkY + GRID_OFFSET;
 
             app.stage.addChild(gridContainer);
         }
