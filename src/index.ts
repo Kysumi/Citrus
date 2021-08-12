@@ -4,6 +4,7 @@ import "./style.css";
 import { renderGrid } from "./grid/gridRenderer";
 
 //https://www.html5gamedevs.com/topic/42741-fast-pixi-tilemap-renderer-trying-to-fix/
+// http://free-tex-packer.com https://www.codeandweb.com/texturepacker
 
 declare const VERSION: string;
 
