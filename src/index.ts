@@ -25,5 +25,8 @@ window.onload = async (): Promise<void> => {
 
     document.body.appendChild(app.view);
 
+    stage.scale.x = 0.7;
+    stage.scale.y = 0.7;
+
     renderGrid({ x: 5, y: 5 }, stage);
 };

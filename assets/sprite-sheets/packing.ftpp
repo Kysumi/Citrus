@@ -1,0 +1,196 @@
+{
+  "meta": {
+    "version": "0.6.7"
+  },
+  "savePath": "C:\\repo\\Citrus\\assets\\sprite-sheets",
+  "images": [
+    {
+      "name": "grass_0.png",
+      "path": "C:/repo/Citrus/assets/export/grass_0.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_1.png",
+      "path": "C:/repo/Citrus/assets/export/grass_1.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_10.png",
+      "path": "C:/repo/Citrus/assets/export/grass_10.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_11.png",
+      "path": "C:/repo/Citrus/assets/export/grass_11.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_12.png",
+      "path": "C:/repo/Citrus/assets/export/grass_12.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_13.png",
+      "path": "C:/repo/Citrus/assets/export/grass_13.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_14.png",
+      "path": "C:/repo/Citrus/assets/export/grass_14.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_15.png",
+      "path": "C:/repo/Citrus/assets/export/grass_15.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_16.png",
+      "path": "C:/repo/Citrus/assets/export/grass_16.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_17.png",
+      "path": "C:/repo/Citrus/assets/export/grass_17.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_18.png",
+      "path": "C:/repo/Citrus/assets/export/grass_18.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_19.png",
+      "path": "C:/repo/Citrus/assets/export/grass_19.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_2.png",
+      "path": "C:/repo/Citrus/assets/export/grass_2.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_20.png",
+      "path": "C:/repo/Citrus/assets/export/grass_20.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_21.png",
+      "path": "C:/repo/Citrus/assets/export/grass_21.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_22.png",
+      "path": "C:/repo/Citrus/assets/export/grass_22.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_23.png",
+      "path": "C:/repo/Citrus/assets/export/grass_23.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_24.png",
+      "path": "C:/repo/Citrus/assets/export/grass_24.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_25.png",
+      "path": "C:/repo/Citrus/assets/export/grass_25.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_26.png",
+      "path": "C:/repo/Citrus/assets/export/grass_26.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_27.png",
+      "path": "C:/repo/Citrus/assets/export/grass_27.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_28.png",
+      "path": "C:/repo/Citrus/assets/export/grass_28.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_29.png",
+      "path": "C:/repo/Citrus/assets/export/grass_29.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_3.png",
+      "path": "C:/repo/Citrus/assets/export/grass_3.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_30.png",
+      "path": "C:/repo/Citrus/assets/export/grass_30.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_31.png",
+      "path": "C:/repo/Citrus/assets/export/grass_31.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_4.png",
+      "path": "C:/repo/Citrus/assets/export/grass_4.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_5.png",
+      "path": "C:/repo/Citrus/assets/export/grass_5.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_6.png",
+      "path": "C:/repo/Citrus/assets/export/grass_6.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_7.png",
+      "path": "C:/repo/Citrus/assets/export/grass_7.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_8.png",
+      "path": "C:/repo/Citrus/assets/export/grass_8.png",
+      "folder": ""
+    },
+    {
+      "name": "grass_9.png",
+      "path": "C:/repo/Citrus/assets/export/grass_9.png",
+      "folder": ""
+    }
+  ],
+  "folders": [],
+  "packOptions": {
+    "textureName": "grass",
+    "textureFormat": "png",
+    "removeFileExtension": false,
+    "prependFolderName": true,
+    "base64Export": false,
+    "tinify": false,
+    "tinifyKey": "",
+    "scale": 1,
+    "filter": "none",
+    "exporter": "pixi.js",
+    "fileName": "pack-result",
+    "savePath": "C:\\repo\\Citrus\\assets\\sprite-sheets",
+    "width": 2048,
+    "height": 2048,
+    "fixedSize": false,
+    "powerOfTwo": false,
+    "padding": 0,
+    "extrude": 0,
+    "allowRotation": true,
+    "allowTrim": true,
+    "trimMode": "trim",
+    "alphaThreshold": "0",
+    "detectIdentical": true,
+    "packer": "MaxRectsBin",
+    "packerMethod": "BestShortSideFit"
+  }
+}
