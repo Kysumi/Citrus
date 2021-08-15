@@ -1,4 +1,4 @@
-import { Application, Container, Graphics } from "pixi.js";
+import { Container, Graphics } from "pixi.js";
 import { Vec2 } from "../vector/vec";
 
 let gridContainer: Container;
@@ -23,11 +23,11 @@ function getChunkOffset(x: number, y: number): Vec2 {
     };
 }
 
-export function renderGrid(dimensions: Vec2, app: Application): void {
+export function renderGrid(dimensions: Vec2, stage: Container): void {
     const startTime = performance.now();
 
     if (gridContainer) {
-        app.stage.removeChild(gridContainer);
+        stage.removeChild(gridContainer);
     }
 
     for (let x = 0; x < CHUNK_COUNT; x++) {
@@ -42,7 +42,7 @@ export function renderGrid(dimensions: Vec2, app: Application): void {
             gridContainer.x = chunkX + GRID_OFFSET;
             gridContainer.y = chunkY + GRID_OFFSET;
 
-            app.stage.addChild(gridContainer);
+            stage.addChild(gridContainer);
         }
     }
 
