@@ -1,5 +1,6 @@
-import { Container, Graphics } from "pixi.js";
+import { Container, Sprite, Texture } from "pixi.js";
 import { Vec2 } from "../vector/vec";
+import { getRandomIntInclusive } from "../helpers/random";
 
 let gridContainer: Container;
 
@@ -55,17 +56,18 @@ function drawChunk(config: GridConfig, container: Container): void {
 
     for (let x = 0; x < dimensions.x; x++) {
         for (let y = 0; y < dimensions.y; y++) {
-            const rectangle = new Graphics();
+            // const rectangle = new Graphics();
+            const sprite = new Sprite(Texture.from(`grass_${getRandomIntInclusive(0, 30)}.png`));
 
             const xPos = x * TILE_SIZE;
             const yPos = y * TILE_SIZE;
 
-            rectangle.lineStyle(2, 0x999999);
-            rectangle.beginFill(x % 2 ? 0xf0f8ff : 0xfff0f8);
-            rectangle.drawRect(xPos, yPos, TILE_SIZE, TILE_SIZE);
-            rectangle.endFill();
-
-            container.addChild(rectangle);
+            // rectangle.lineStyle(2, 0x999999);
+            // rectangle.beginFill(x % 2 ? 0xf0f8ff : 0xfff0f8);
+            // rectangle.drawRect(xPos, yPos, TILE_SIZE, TILE_SIZE);
+            // rectangle.endFill();
+            sprite.position.set(xPos, yPos);
+            container.addChild(sprite);
         }
     }
 }
