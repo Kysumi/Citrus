@@ -1,7 +1,7 @@
 import * as PIXI from "pixi.js";
 import "./style.css";
-
 import { renderGrid } from "./grid/gridRenderer";
+import { loadSprites } from "./asset-loaders/spriteLoader";
 
 //https://www.html5gamedevs.com/topic/42741-fast-pixi-tilemap-renderer-trying-to-fix/
 
@@ -18,7 +18,7 @@ const stage = app.stage;
 
 window.onload = async (): Promise<void> => {
     try {
-        await loadGameAssets();
+        await loadSprites();
     } catch (e) {
         console.log(e);
     }
@@ -27,20 +27,3 @@ window.onload = async (): Promise<void> => {
 
     renderGrid({ x: 5, y: 5 }, stage);
 };
-
-async function loadGameAssets(): Promise<void> {
-    return new Promise((res, rej) => {
-        const loader = PIXI.Loader.shared;
-        loader.add("./assets/sprite-sheets/grass.json");
-
-        loader.onComplete.once(() => {
-            res();
-        });
-
-        loader.onError.once(() => {
-            rej();
-        });
-
-        loader.load();
-    });
-}
