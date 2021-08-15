@@ -1,6 +1,6 @@
 import { Container, Graphics, Sprite, Texture } from "pixi.js";
-import { Vec2 } from "../vector/vec";
 import { getRandomIntInclusive } from "../helpers/random";
+import { Vec2 } from "../vector/vec";
 
 let gridContainer: Container;
 
