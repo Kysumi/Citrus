@@ -11,7 +11,6 @@ export const movementSystem = defineSystem((world) => {
 
         Position.x[eid] += Velocity.x[eid];
         Position.y[eid] += Velocity.y[eid];
-        Position.z[eid] += Velocity.z[eid];
     }
     return world;
 });

@@ -8,6 +8,8 @@ import { createWorld, addEntity, addComponent, pipe } from "bitecs";
 import { movedTransformSystem, movementSystem } from "./ecs/systems/movement/movement";
 import { timeSystem } from "./ecs/systems/time/time";
 import { Position, Velocity } from "./ecs/systems/movement/types";
+import { PCTag } from "./ecs/systems/tags";
+import { playerControllerSystem } from "./ecs/systems/movement/playerControl";
 
 const world = createWorld();
 world.time = { delta: 0, elapsed: 0, then: performance.now() };
@@ -16,7 +18,7 @@ const eid = addEntity(world);
 addComponent(world, Position, eid);
 addComponent(world, Velocity, eid);
 
-const pipeline = pipe(movementSystem, movedTransformSystem, timeSystem);
+const pipeline = pipe(playerControllerSystem, movementSystem, movedTransformSystem, timeSystem);
 
 export const Actors = new Map<number, Actor>();
 
@@ -50,6 +52,7 @@ window.onload = async (): Promise<void> => {
     renderGrid({ x: 5, y: 5 }, gameContainer);
 
     const actor = new Actor({ x: 10, y: 10 }, { x: 32, y: 32 }, world);
+    addComponent(world, PCTag, actor.eid);
     Actors.set(actor.eid, actor);
 
     gameContainer.addChild(actor.getGraphics());

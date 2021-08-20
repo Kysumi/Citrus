@@ -16,15 +16,14 @@ export class Actor {
 
         addComponent(world, Position, this.eid);
         addComponent(world, Velocity, this.eid);
-
-        Velocity.x[this.eid] = 4;
     }
 
     getGraphics(): Graphics {
         return this.rectangle;
     }
 
-    update() {
+    update(): void {
         this.rectangle.x = Position.x[this.eid];
+        this.rectangle.y = Position.y[this.eid];
     }
 }
