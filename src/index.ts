@@ -5,7 +5,7 @@ import { loadSprites } from "./asset-loaders/spriteLoader";
 import { Actor } from "./actor/actor";
 import { Container } from "pixi.js";
 import { createWorld, addEntity, addComponent, pipe } from "bitecs";
-import { movementSystem } from "./ecs/systems/movement/movement";
+import { movedTransformSystem, movementSystem } from "./ecs/systems/movement/movement";
 import { timeSystem } from "./ecs/systems/time/time";
 import { Position, Velocity } from "./ecs/systems/movement/types";
 
@@ -16,7 +16,9 @@ const eid = addEntity(world);
 addComponent(world, Position, eid);
 addComponent(world, Velocity, eid);
 
-const pipeline = pipe(movementSystem, timeSystem);
+const pipeline = pipe(movementSystem, movedTransformSystem, timeSystem);
+
+export const Actors = new Map<number, Actor>();
 
 setInterval(() => {
     pipeline(world);
@@ -47,7 +49,9 @@ window.onload = async (): Promise<void> => {
 
     renderGrid({ x: 5, y: 5 }, gameContainer);
 
-    const actor = new Actor({ x: 10, y: 10 }, { x: 32, y: 32 });
+    const actor = new Actor({ x: 10, y: 10 }, { x: 32, y: 32 }, world);
+    Actors.set(actor.eid, actor);
+
     gameContainer.addChild(actor.getGraphics());
 
     stage.scale.x = 0.7;
