@@ -18,8 +18,6 @@ function getChunkOffset(x: number, y: number): Vec2 {
 }
 
 export function renderGrid(dimensions: Vec2, stage: Container, showDebug: boolean): void {
-    const startTime = performance.now();
-
     if (gridContainer) {
         stage.removeChild(gridContainer);
     }
@@ -49,9 +47,6 @@ export function renderGrid(dimensions: Vec2, stage: Container, showDebug: boolea
             }
         }
     }
-
-    const completedTime = performance.now();
-    console.log("Rendering took " + (completedTime - startTime) + " milliseconds.");
 }
 
 function drawChunk(dimensions: Vec2, container: Container): void {
