@@ -10,8 +10,6 @@ const CHUNK_SIZE = 10;
 const CHUNK_COUNT = 5;
 const CHUNK_WIDTH = CHUNK_SIZE * TILE_SIZE;
 
-const GRID_OFFSET = 50;
-
 function getChunkOffset(x: number, y: number): Vec2 {
     return {
         x: (x * CHUNK_WIDTH) / 2,
@@ -19,7 +17,7 @@ function getChunkOffset(x: number, y: number): Vec2 {
     };
 }
 
-export function renderGrid(dimensions: Vec2, stage: Container): void {
+export function renderGrid(dimensions: Vec2, stage: Container, showDebug: boolean): void {
     const startTime = performance.now();
 
     if (gridContainer) {
@@ -34,16 +32,21 @@ export function renderGrid(dimensions: Vec2, stage: Container): void {
 
             const pos = getChunkOffset(x, y);
 
-            const posX = pos.x + GRID_OFFSET;
-            const posY = pos.y + GRID_OFFSET;
+            const posX = pos.x;
+            const posY = pos.y;
 
             gridContainer.x = posX;
             gridContainer.y = posY;
 
-            const rect = outline({ x: posX, y: posY }, { x: dimensions.x * TILE_SIZE, y: dimensions.y * TILE_SIZE });
-
             stage.addChild(gridContainer);
-            stage.addChild(rect);
+
+            if (showDebug) {
+                const rect = outline(
+                    { x: posX, y: posY },
+                    { x: dimensions.x * TILE_SIZE, y: dimensions.y * TILE_SIZE }
+                );
+                stage.addChild(rect);
+            }
         }
     }
 

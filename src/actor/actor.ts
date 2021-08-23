@@ -8,7 +8,7 @@ export class Actor {
     eid: number;
 
     constructor(position: Vec2, size: Vec2, world: IWorld) {
-        this.rectangle.beginFill(0xf0f8ff);
+        this.rectangle.beginFill(0xffa4d4);
         this.rectangle.drawRect(position.x, position.y, size.x, size.y);
         this.rectangle.endFill();
 

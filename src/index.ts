@@ -9,11 +9,12 @@ import { movedTransformSystem, movementSystem } from "./ecs/systems/movement/mov
 import { timeSystem } from "./ecs/systems/time/time";
 import { PCTag } from "./ecs/systems/tags";
 import { playerControllerSystem } from "./ecs/systems/movement/playerControl";
+import { cameraFollowSystem } from "./ecs/systems/camera/follow";
 
 const world = createWorld();
 world.time = { delta: 0, elapsed: 0, then: performance.now() };
 
-const pipeline = pipe(playerControllerSystem, movementSystem, movedTransformSystem, timeSystem);
+const pipeline = pipe(playerControllerSystem, movementSystem, movedTransformSystem, cameraFollowSystem, timeSystem);
 
 export const Actors = new Map<number, Actor>();
 
@@ -21,10 +22,8 @@ setInterval(() => {
     pipeline(world);
 }, 16);
 
-//https://www.html5gamedevs.com/topic/42741-fast-pixi-tilemap-renderer-trying-to-fix/
-
-const gameWidth = 800;
-const gameHeight = 600;
+export const gameWidth = 800;
+export const gameHeight = 600;
 
 const app = new PIXI.Application({
     backgroundColor: 0xd3d3d3,
@@ -33,7 +32,7 @@ const app = new PIXI.Application({
 });
 
 const stage = app.stage;
-const gameContainer = new Container();
+export const gameContainer = new Container();
 
 window.onload = async (): Promise<void> => {
     try {
@@ -44,7 +43,7 @@ window.onload = async (): Promise<void> => {
 
     document.body.appendChild(app.view);
 
-    renderGrid({ x: 5, y: 5 }, gameContainer);
+    renderGrid({ x: 5, y: 5 }, gameContainer, false);
 
     const actor = new Actor({ x: 10, y: 10 }, { x: 32, y: 32 }, world);
     addComponent(world, PCTag, actor.eid);
@@ -52,7 +51,5 @@ window.onload = async (): Promise<void> => {
 
     gameContainer.addChild(actor.getGraphics());
 
-    stage.scale.x = 0.7;
-    stage.scale.y = 0.7;
     stage.addChild(gameContainer);
 };
