@@ -4,19 +4,14 @@ import { renderGrid } from "./grid/gridRenderer";
 import { loadSprites } from "./asset-loaders/spriteLoader";
 import { Actor } from "./actor/actor";
 import { Container } from "pixi.js";
-import { createWorld, addEntity, addComponent, pipe } from "bitecs";
+import { createWorld, addComponent, pipe } from "bitecs";
 import { movedTransformSystem, movementSystem } from "./ecs/systems/movement/movement";
 import { timeSystem } from "./ecs/systems/time/time";
-import { Position, Velocity } from "./ecs/systems/movement/types";
 import { PCTag } from "./ecs/systems/tags";
 import { playerControllerSystem } from "./ecs/systems/movement/playerControl";
 
 const world = createWorld();
 world.time = { delta: 0, elapsed: 0, then: performance.now() };
-
-const eid = addEntity(world);
-addComponent(world, Position, eid);
-addComponent(world, Velocity, eid);
 
 const pipeline = pipe(playerControllerSystem, movementSystem, movedTransformSystem, timeSystem);
 
