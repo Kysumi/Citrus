@@ -55,7 +55,7 @@
         "eslint-config-prettier": "^8.3.0",
         "eslint-loader": "^4.0.2",
         "eslint-plugin-prettier": "^3.4.0",
-        "html-webpack-plugin": "^5.3.1",
+        "html-webpack-plugin": "^5.4.0",
         "identity-obj-proxy": "^3.0.0",
         "jest": "^27.0.6",
         "jest-canvas-mock": "^2.3.1",
