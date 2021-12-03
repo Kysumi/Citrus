@@ -59,7 +59,7 @@
         "identity-obj-proxy": "^3.0.0",
         "jest": "^27.0.6",
         "jest-canvas-mock": "^2.3.1",
-        "jsdom": "^16.5.3",
+        "jsdom": "^19.0.0",
         "mini-css-extract-plugin": "^2.2.0",
         "prettier": "^2.2.1",
         "pretty-quick": "^3.1.0",
