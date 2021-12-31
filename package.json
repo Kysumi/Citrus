@@ -37,7 +37,7 @@
         "@tauri-apps/cli": "^1.0.0-beta.6",
         "@types/copy-webpack-plugin": "^8.0.0",
         "@types/html-webpack-plugin": "^3.2.5",
-        "@types/jest": "^26.0.24",
+        "@types/jest": "^27.4.0",
         "@types/mini-css-extract-plugin": "^2.0.1",
         "@types/node": "^16.4.6",
         "@types/terser-webpack-plugin": "^5.0.3",
