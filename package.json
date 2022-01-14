@@ -60,7 +60,7 @@
         "jest": "^27.0.6",
         "jest-canvas-mock": "^2.3.1",
         "jsdom": "^16.5.3",
-        "mini-css-extract-plugin": "^2.2.0",
+        "mini-css-extract-plugin": "^2.4.7",
         "prettier": "^2.2.1",
         "pretty-quick": "^3.1.0",
         "terser-webpack-plugin": "^5.1.1",
