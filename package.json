@@ -20,7 +20,7 @@
     "author": "jkanchelov",
     "license": "MIT",
     "dependencies": {
-        "@tauri-apps/api": "^1.0.0-beta.5",
+        "@tauri-apps/api": "^1.0.0-rc.2",
         "bitecs": "^0.3.17-1",
         "core-js": "^3.12.1",
         "pixi.js": "^6.1.0"
